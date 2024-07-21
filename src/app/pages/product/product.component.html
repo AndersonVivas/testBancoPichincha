@@ -1,0 +1,56 @@
+<div class='container'>
+    <div class="tableContainer">
+        <div class="bar-container">
+            <div class='bar-elements'>
+                <app-form-input [control]="searchControl" label="" placeholder="Search.." type="text"
+                    [errorTypes]="['required','minlength','maxlength']"
+                    [errorMessages]="{'required': 'Este campo es requerido!',
+                'minlength':'El campo debe tener al menos 5 caracteres!','maxlength':'El campo debe tener maximo 100 caracteres!'}">
+                </app-form-input>
+            </div>
+            <div class='bar-elements'>
+                <button class="button-primary buttoPosition" [routerLink]="['/products/add']">Agregar</button>
+            </div>
+        </div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Nombre del producto</th>
+                    <th>Descripción <i class="fa-solid fa-circle-info"></i></th>
+                    <th>Fecha de liberación <i class="fa-solid fa-circle-info"></i></th>
+                    <th>Fecha de reestructuración <i class="fa-solid fa-circle-info"></i></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of listProducts">
+                    <td><img class="logoStyle" [src]="product.logo"></td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }} </td>
+                    <td>{{ product.date_release | date: 'dd/MM/yyyy' }} </td>
+                    <td>{{ product.date_revision | date: 'dd/MM/yyyy' }} </td>
+                    <td>
+                        <div class="menu-container">
+                            <i class="fa-solid fa-ellipsis-vertical" (click)="toggleMenu($event, product.id)"></i>
+                            <div class="dropdown-menu" [ngClass]="{'show': activeMenu === product.id}">
+                                <ul>
+                                    <li (click)="editProduct(product.id)">Editar</li>
+                                    <li (click)="deleteProduct(product.id,product.name)">Eliminar</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <app-select-paginator [pageSizeOptions]="pageSizeOptions" [selectedPageSize]="sizeOfData" [lengthElements]="lengthData"
+            (pageSizeChange)="onPageSizeChange($event)">
+        </app-select-paginator>
+    </div>
+    </div>
+</div>
+<app-modal></app-modal>

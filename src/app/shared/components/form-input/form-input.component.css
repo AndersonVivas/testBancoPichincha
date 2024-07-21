@@ -1,0 +1,28 @@
+.formInputStyle{
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    flex: 1; 
+  }
+  .formInputStyle label{
+    font-size: small;
+    margin-bottom: 10px;
+  }
+
+  .formInputStyle input {
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(71, 71, 71);
+    padding: 0 30px;
+  }
+  .disabledFormSection{
+    color: gray;
+  }
+  .disabledFormSection input{
+    border: 1px solid grey;
+  }
+
+  .errorFormSection input{
+    border: 1px solid red;
+  }

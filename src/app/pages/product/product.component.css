@@ -1,0 +1,79 @@
+.tableContainer {
+    width: 90%;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+}
+
+.tableContainer table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableContainer table thead {
+    background: #ececec;
+}
+
+.tableContainer table th,
+.tableContainer table td {
+    color: rgb(71, 71, 71);
+    font-size: small;
+    height: 50px;
+    text-align: center;
+    border-bottom: 1px solid rgb(202, 202, 202);
+    /* Define el borde para celdas de encabezado y datos */
+    width: 15%;
+}
+
+.tableContainer table th,
+.tableContainer table td:last-child {
+    width: 5%;
+}
+
+.fa-ellipsis-vertical {
+    cursor: pointer;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 60%;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f0f0f0;
+}
+
+.logoStyle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}

@@ -1,0 +1,15 @@
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  color: #042974; 
+  margin-bottom: 50px;
+  margin-top: 40px;
+  font-size: 40px;
+}
+
+.icon fa-icon {
+  margin-right: 5px;
+}

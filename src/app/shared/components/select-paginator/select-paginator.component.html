@@ -1,0 +1,10 @@
+<div class="bar-container">
+    <div class='bar-elements'>
+        <h6>{{lengthElements}} Resultados</h6>
+    </div>
+    <div class='bar-elements'>
+        <select [(ngModel)]="selectedPageSize" (change)="onPageSizeChange($event)">
+            <option *ngFor="let option of pageSizeOptions" [value]="option">{{ option }}</option>
+        </select>
+    </div>
+</div>

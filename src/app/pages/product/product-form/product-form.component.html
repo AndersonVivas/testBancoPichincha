@@ -1,0 +1,58 @@
+<div class="container">
+    <h1>Formulario de Registro</h1>
+    <form [formGroup]="formProduct">
+        <div class="formGroup">
+            <div class="formSection">
+                <app-form-input class="input" [control]="formProduct.get('id')" label="ID" type="text"
+                    [errorTypes]="['required', 'idExists','minlength','maxlength']"
+                    [errorMessages]="{'required': 'ID no válido!','idExists': 'ID no válido!',
+                'minlength':'El campo debe tener al menos 3 caracteres!','maxlength':'El campo debe tener maximo 10 caracteres!'}">
+                </app-form-input>
+            </div>
+            <div class="formSection">
+                <app-form-input [control]="formProduct.get('name')" label="Nombre" type="text"
+                    [errorTypes]="['required','minlength','maxlength']"
+                    [errorMessages]="{'required': 'Este campo es requerido!',
+                'minlength':'El campo debe tener al menos 5 caracteres!','maxlength':'El campo debe tener maximo 100 caracteres!'}">
+                </app-form-input>
+            </div>
+        </div>
+        <div class="formGroup">
+            <div class="formSection">
+                <app-form-input [control]="formProduct.get('description')" label="Descripción" type="text"
+                    [errorTypes]="['required','minlength','maxlength']"
+                    [errorMessages]="{'required': 'Este campo es requerido!',
+                'minlength':'El campo debe tener al menos 10 caracteres!','maxlength':'El campo debe tener maximo 200 caracteres!'}">
+                </app-form-input>
+            </div>
+            <div class="formSection">
+                <div class="formSection">
+                    <app-form-input class="input" [control]="formProduct.get('logo')" label="Logo" type="text"
+                        [errorTypes]="['required']" [errorMessages]="{'required': 'Este campo es requerido!'}">
+                    </app-form-input>
+                </div>
+            </div>
+        </div>
+        <div class="formGroup">
+            <div class="formSection">
+                <app-form-input [control]="formProduct.get('date_release')" label="Fecha de Liberación" type="date"
+                    [errorTypes]="['required']" [errorMessages]="{'required': 'Este campo es requerido!'}">
+                </app-form-input>
+            </div>
+            <div class="formSection">
+                <div class="formSection">
+                    <app-form-input class="input" [control]="formProduct.get('date_revision')" label="Fecha de Revisión"
+                        type="date" [errorTypes]="['required']"
+                        [errorMessages]="{'required': 'Este campo es requerido!'}">
+                    </app-form-input>
+                </div>
+            </div>
+        </div>
+
+        <div class="formGroup">
+            <button class="button-secondary" (click)="actionReiniciar()">Reiniciar</button>
+
+            <button class="button-primary" [disabled]="formProduct.invalid" (click)="save()">Enviar</button>
+        </div>
+    </form>
+</div>

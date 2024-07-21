@@ -1,0 +1,16 @@
+<div class="formInputStyle" *ngIf="control" [ngClass]="getDynamicClasses(control)">
+
+  <ng-container *ngIf="label">
+    <label>{{ label }}</label>
+  </ng-container>
+  <ng-container *ngIf="placeholder; else noPlaceholder">
+    <input [type]="type" [formControl]="getFormControl()" [placeholder]="placeholder || 'Enter value'">
+  </ng-container>
+  <ng-template #noPlaceholder>
+    <input [type]="type" [formControl]="getFormControl()">
+  </ng-template>
+  <ng-container *ngFor="let errorType of errorTypes">
+    <app-error-message [control]="control" [errorType]="errorType" [message]="errorMessages[errorType]">
+    </app-error-message>
+  </ng-container>
+</div>
